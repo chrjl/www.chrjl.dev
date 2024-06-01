@@ -1,7 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header';
 import metadata from '../data/_metadata.json';
+
+const content = await getCollection('content');
 ---
 
 <BaseLayout siteTitle={metadata.siteTitle}>
