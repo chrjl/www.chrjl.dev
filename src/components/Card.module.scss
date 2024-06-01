@@ -1,0 +1,101 @@
+@use '../styles/vars';
+
+$tailwind-zinc-200: oklch(92% 0.004 286.32);
+$tailwind-sky-100: oklch(95.1% 0.026 236.824);
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  border: 2px solid black;
+  position: relative;
+  padding: 1em;
+  margin: 2em;
+
+  header {
+    text-align: center;
+    font-weight: 600;
+    transition: font-weight 1s;
+  }
+
+  &:hover {
+    header,
+    a {
+      font-weight: bold;
+    }
+  }
+
+  a {
+    transition: color 0.5s;
+    transition-delay: 0.5s;
+  }
+
+  &:hover a {
+    color: vars.$tailwind-blue-700;
+  }
+
+  // CSS trickery using opacity of pseudoelement to transition a background gradient
+  // <https://keithjgrant.com/posts/2017/07/transitioning-gradients/>
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient($tailwind-zinc-200, 75%, $tailwind-sky-100);
+    z-index: -1;
+    transition: opacity 0.5s linear;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.title {
+  @include vars.lg;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.keywords {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+
+  list-style-type: none;
+  margin-top: 1rem;
+  margin-left: 0;
+
+  @include vars.xs;
+  text-transform: uppercase;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25em;
+
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    @include vars.xs;
+    line-height: 1.25em;
+    height: 1.25em;
+  }
+}
+
+.article {
+  @include vars.content;
+
+  *:first-child {
+    margin: 0;
+  }
+}

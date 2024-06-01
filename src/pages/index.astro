@@ -3,9 +3,12 @@ import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header';
+import Card from '../components/Card';
 import metadata from '../data/_metadata.json';
+import { render } from 'astro:content';
 
-const content = await getCollection('content');
+const collection = await getCollection('content');
+const content = await Promise.all(collection.map((post) => render(post)));
 ---
 
 <BaseLayout siteTitle={metadata.siteTitle}>
@@ -16,4 +19,21 @@ const content = await getCollection('content');
     description={metadata.description}
     links={metadata.links}
   />
+
+  <main>
+    {
+      content.map(({ remarkPluginFrontmatter: data, Content }) => (
+        <Card
+          title={data.title}
+          keywords={data.keywords}
+          links={data.references?.map(
+            (ref: { [key: string]: string }) => ref.URL!
+          )}
+          order={Number.isInteger(data.order) ? data.order : content.length}
+        >
+          <Content />
+        </Card>
+      ))
+    }
+  </main>
 </BaseLayout>
