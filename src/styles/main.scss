@@ -1,0 +1,51 @@
+@use 'reset';
+@use 'vars';
+
+#root {
+  margin: auto;
+  max-width: 640px;
+  font-family: vars.$font-sans;
+}
+
+.sans {
+  @include vars.sans;
+}
+
+.content {
+  @include vars.content;
+}
+
+.mono {
+  @include vars.mono;
+}
+
+a {
+  color: vars.$tailwind-blue-600;
+  text-decoration: underline;
+}
+
+code,
+pre {
+  @include vars.mono;
+}
+
+code {
+  font-weight: 600;
+}
+
+p {
+  margin-top: 1em;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 2em;
+  margin-top: 1em;
+  display: inline-block;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}

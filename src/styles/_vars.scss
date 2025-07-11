@@ -1,0 +1,31 @@
+$font-sans: 'Inter Variable', sans-serif;
+$font-content: 'Arimo', sans-serif;
+$font-mono: 'Cousine', monospace;
+
+$tailwind-blue-500: oklch(62.3% 0.214 259.815);
+$tailwind-blue-600: oklch(54.6% 0.245 262.881);
+$tailwind-blue-700: oklch(48.8% 0.243 264.376);
+$tailwind-blue-800: oklch(42.4% 0.199 265.638);
+
+@mixin sans {
+  font-family: $font-sans;
+}
+
+@mixin content {
+  font-size: 0.875rem;
+  line-height: 1.25em;
+  font-family: $font-content;
+}
+
+@mixin mono {
+  font-size: 0.95em;
+  font-family: $font-mono;
+}
+
+@mixin xs {
+  font-size: 0.75rem;
+}
+
+@mixin lg {
+  font-size: 1.125rem;
+}

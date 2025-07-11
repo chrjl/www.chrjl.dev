@@ -1,0 +1,25 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/arimo/latin-400.css';
+import '@fontsource/arimo/latin-400-italic.css';
+import '@fontsource/arimo/latin-700.css';
+import '@fontsource/cousine/latin-400.css';
+import '@fontsource/cousine/latin-700.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+import '../styles/main.scss';
+
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+  </head>
+  <body id="root">
+    <slot />
+  </body>
+</html>
