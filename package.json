@@ -10,8 +10,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.11.0",
     "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.3.0",
+    "@mdx-js/react": "^3.1.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "astro": "^5.11.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rehype-external-links": "^3.0.0",
+    "sass": "^1.89.2",
     "typescript": "^5.8.3"
   }
 }
