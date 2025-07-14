@@ -1,3 +1,4 @@
+import IconLink from './IconLink';
 import styles from './Header.module.scss';
 
 interface Props {
@@ -18,19 +19,6 @@ export default function Header({
   description,
   links,
 }: Props) {
-  const linkItems = links?.map(({ url, text }, i) => (
-    <>
-      <img
-        height="100%"
-        width="auto"
-        src={`https://icons.duckduckgo.com/ip4/${new URL(url).hostname}.ico`}
-      ></img>
-      <a target="_blank" href={url}>
-        {text || url}
-      </a>
-    </>
-  ));
-
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>{title}</h1>
@@ -47,10 +35,10 @@ export default function Header({
             <li className={styles.description}>{description}</li>
           ) : null}
 
-          {linkItems?.length
-            ? linkItems.map((li, i) => (
-                <li key={i} className={styles.link}>
-                  {li}
+          {links?.length
+            ? links.map(({ url, text }, i) => (
+                <li key={i}>
+                  <IconLink href={url}>{text || url}</IconLink>
                 </li>
               ))
             : null}
