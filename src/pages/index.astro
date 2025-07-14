@@ -1,7 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header';
+
 const pageTitle = 'Portfolio';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <Header
+    title="Title"
+    subtitle="Subtitle"
+    subsubtitle="Subsubtitle"
+    description="Description"
+    links={[
+      { url: 'https://github.com/octocat', text: 'octocat' },
+      {
+        url: 'https://linkedin.com/in/profile',
+        text: 'profile',
+      },
+      { url: 'https://duckduckgo.com' },
+      { url: 'https://mozilla.org' },
+    ]}
+  />
 </BaseLayout>

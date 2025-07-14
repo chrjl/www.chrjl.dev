@@ -1,0 +1,106 @@
+.header {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 900;
+}
+
+.subtitle {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.subsubtitle {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+%abstract {
+  display: block;
+
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  text-align: center;
+
+  ul {
+    display: flex;
+    margin: 0;
+
+    li {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      column-gap: 0.5em;
+      white-space: nowrap;
+    }
+
+    .description {
+      font-weight: 500;
+    }
+  }
+}
+
+@mixin col-display {
+  ul {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5em;
+
+    li {
+      height: 1.25em;
+      line-height: 1.25em;
+    }
+  }
+
+  .description {
+    margin-bottom: 1em;
+  }
+}
+
+@mixin row-display {
+  ul {
+    flex-direction: row;
+    justify-content: center;
+
+    li {
+      height: 1.5em;
+      line-height: 1.5em;
+    }
+
+    li:not(:first-child)::before {
+      display: inline-block;
+      width: 2rem;
+      content: '|';
+    }
+  }
+
+  .description {
+    margin-bottom: 0;
+  }
+}
+
+.abstract-responsive {
+  @extend %abstract;
+
+  /* column display */
+  @include col-display();
+
+  /* row display */
+  @media (min-width: 640px) {
+    @include row-display();
+  }
+}
+
+.abstract-col {
+  @extend %abstract;
+  @include col-display();
+}
