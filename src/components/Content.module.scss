@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  summary {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  summary:hover,
+  .details-content:hover {
+    cursor: pointer;
+  }
+
+  .details-content {
+    margin-top: 2em;
+  }
+}

@@ -94,8 +94,4 @@ $tailwind-sky-100: oklch(95.1% 0.026 236.824);
 
 .article {
   @include vars.content;
-
-  *:first-child {
-    margin: 0;
-  }
 }
