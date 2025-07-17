@@ -1,9 +1,6 @@
 @use '../styles/vars';
 
 .container {
-  display: flex;
-  flex-direction: column;
-  row-gap: 2rem;
   border: 2px solid black;
   position: relative;
   padding: 1em;
@@ -13,12 +10,18 @@
     text-align: center;
     font-weight: 600;
     transition: font-weight 1s;
+    margin-bottom: 2rem;
+  }
+
+  footer {
+    margin-top: 3rem;
   }
 
   .article {
-    strong {
-      font-weight: unset;
-      color: vars.$tailwind-blue-950;
+    strong > em,
+    em > strong {
+      font-style: normal;
+      color: vars.$tailwind-zinc-600;
     }
   }
 
@@ -33,17 +36,18 @@
       color: vars.$tailwind-blue-700;
     }
 
-    .article strong {
-      font-weight: 800;
-      color: vars.$tailwind-zinc-600;
+    strong > em,
+    em > strong {
+      color: vars.$tailwind-blue-950;
     }
-  }
 
-  a,
-  button,
-  strong {
-    transition: color 0.5s;
-    transition-delay: 0.5s;
+    a,
+    button,
+    strong > em,
+    em > strong {
+      transition: color 0.5s;
+      transition-delay: 0.5s;
+    }
   }
 
   // CSS trickery using opacity of pseudoelement to transition a background gradient
@@ -82,10 +86,11 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  column-gap: 0.5rem;
+  gap: 1em;
 
   list-style-type: none;
   margin-top: 1rem;
+  margin-bottom: 3rem;
   margin-left: 0;
 
   @include vars.xs;
@@ -110,4 +115,10 @@
 
 .article {
   @include vars.content;
+
+  ul:first-child {
+    margin-top: 0;
+  }
+
+  margin-bottom: 1em;
 }

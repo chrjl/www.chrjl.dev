@@ -30,6 +30,7 @@ $tailwind-sky-100: oklch(95.1% 0.026 236.824);
 
 @mixin lg {
   font-size: 1.125rem;
+  line-height: 1.5;
 }
 
 @mixin anchor {

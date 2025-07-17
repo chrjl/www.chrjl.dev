@@ -5,6 +5,10 @@
   flex-direction: column;
   gap: 2em;
 
+  p:first-child {
+    margin-top: 0;
+  }
+
   summary {
     display: flex;
     flex-direction: column;
@@ -28,17 +32,18 @@
     }
   }
 
-  dt + dd {
-    margin-top: 1em;
+  dt + dd,
+  dt + dt {
+    margin-top: 0.5em;
   }
 
   dl:not(:first-child),
   dd + dt {
-    margin-top: 2.5em;
+    margin-top: 1em;
   }
 
   .details-content {
-    margin-top: 2em;
+    margin-top: 3em;
   }
 }
 
