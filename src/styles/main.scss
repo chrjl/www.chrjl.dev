@@ -20,13 +20,20 @@
 }
 
 a {
-  color: vars.$tailwind-blue-600;
-  text-decoration: underline;
+  @include vars.anchor;
 }
 
 code,
 pre {
   @include vars.mono;
+}
+
+em {
+  font-style:italic;
+}
+
+strong {
+  font-weight: 800;
 }
 
 code {

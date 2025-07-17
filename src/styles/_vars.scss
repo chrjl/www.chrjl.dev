@@ -2,10 +2,12 @@ $font-sans: 'Inter Variable', sans-serif;
 $font-content: 'Arimo', sans-serif;
 $font-mono: 'Cousine', monospace;
 
-$tailwind-blue-500: oklch(62.3% 0.214 259.815);
 $tailwind-blue-600: oklch(54.6% 0.245 262.881);
 $tailwind-blue-700: oklch(48.8% 0.243 264.376);
-$tailwind-blue-800: oklch(42.4% 0.199 265.638);
+$tailwind-blue-950:  oklch(28.2% 0.091 267.935);
+$tailwind-zinc-200: oklch(92% 0.004 286.32);
+$tailwind-zinc-600: oklch(44.2% 0.017 285.786);
+$tailwind-sky-100: oklch(95.1% 0.026 236.824);
 
 @mixin sans {
   font-family: $font-sans;
@@ -28,4 +30,10 @@ $tailwind-blue-800: oklch(42.4% 0.199 265.638);
 
 @mixin lg {
   font-size: 1.125rem;
+}
+
+@mixin anchor {
+  font-family: inherit;
+  color: $tailwind-blue-600;
+  text-decoration: underline;
 }

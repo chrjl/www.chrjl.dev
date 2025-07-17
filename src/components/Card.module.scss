@@ -1,8 +1,5 @@
 @use '../styles/vars';
 
-$tailwind-zinc-200: oklch(92% 0.004 286.32);
-$tailwind-sky-100: oklch(95.1% 0.026 236.824);
-
 .container {
   display: flex;
   flex-direction: column;
@@ -43,7 +40,11 @@ $tailwind-sky-100: oklch(95.1% 0.026 236.824);
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient($tailwind-zinc-200, 75%, $tailwind-sky-100);
+    background: linear-gradient(
+      vars.$tailwind-zinc-200,
+      75%,
+      vars.$tailwind-sky-100
+    );
     z-index: -1;
     transition: opacity 0.5s linear;
     opacity: 0;
