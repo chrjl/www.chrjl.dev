@@ -13,21 +13,28 @@ const Details = ({
   const [open, setOpen] = useState(false);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-    setOpen((open) => !open);
+    if (!(event.target instanceof HTMLAnchorElement)) {
+      event.preventDefault();
+      setOpen((open) => !open);
+    }
   };
   const handleClose = (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-    setOpen(false);
+    if (!(event.target instanceof HTMLAnchorElement)) {
+      event.preventDefault();
+      setOpen(false);
+    }
   };
 
   return (
     <details className={styles.container} open={open}>
       <summary onClick={handleOpen}>
-        <Markdown>{summary}</Markdown>
+        <section>
+          <Markdown>{summary}</Markdown>
+        </section>
+
         {!open && (
           <div>
-            <a className={styles.button}>Read more...</a>
+            <button className={styles.anchor}>Read more...</button>
           </div>
         )}
       </summary>

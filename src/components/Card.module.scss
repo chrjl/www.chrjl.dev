@@ -15,20 +15,35 @@
     transition: font-weight 1s;
   }
 
-  &:hover {
-    header,
-    a {
-      font-weight: bold;
+  .article {
+    strong {
+      font-weight: unset;
+      color: vars.$tailwind-blue-950;
     }
   }
 
-  a {
-    transition: color 0.5s;
-    transition-delay: 0.5s;
+  &:hover {
+    header {
+      font-weight: bold;
+    }
+
+    a,
+    button {
+      font-weight: bold;
+      color: vars.$tailwind-blue-700;
+    }
+
+    .article strong {
+      font-weight: 800;
+      color: vars.$tailwind-zinc-600;
+    }
   }
 
-  &:hover a {
-    color: vars.$tailwind-blue-700;
+  a,
+  button,
+  strong {
+    transition: color 0.5s;
+    transition-delay: 0.5s;
   }
 
   // CSS trickery using opacity of pseudoelement to transition a background gradient

@@ -1,3 +1,5 @@
+@use '../styles/vars';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -38,4 +40,12 @@
   .details-content {
     margin-top: 2em;
   }
+}
+
+.anchor {
+  @include vars.anchor;
+  cursor: inherit;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
