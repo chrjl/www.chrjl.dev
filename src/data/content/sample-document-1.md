@@ -8,6 +8,7 @@ keywords:
 references:
   - type: document
     URL: https://readthedocs.com
+target: https://example.com
 ---
 
 This should have flexbox order 1.
