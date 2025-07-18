@@ -42,6 +42,11 @@
     margin-top: 1em;
   }
 
+  hr {
+    margin: 3em 0;
+    color: vars.$tailwind-zinc-600;
+  }
+
   .details-content {
     margin-top: 3em;
   }

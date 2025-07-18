@@ -41,6 +41,6 @@ Cards are populated with content and frontmatter from Markdown files in `src/dat
 
 Content features:
 
-- Content can be separated into an excerpt and expandable detail by using a `---` separator in the Markdown body.
+- Content can be separated into an excerpt and expandable detail by using a `...` separator in the Markdown body.
 - Raw HTML can be included (rendered using the `rehype-raw` plugin).
 - Font Awesome icons can be included via HTML (e.g. `<i class="fa-solid fa-face-smile"></i>`).

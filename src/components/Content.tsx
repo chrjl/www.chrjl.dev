@@ -53,7 +53,7 @@ const Content = ({ body, target }: { body?: string; target?: string }) => {
     return;
   }
 
-  const [summary, ...content] = body?.split('---');
+  const [summary, ...content] = body?.split('...');
 
   return content.length > 0 ? (
     <Details summary={summary} content={content} />
