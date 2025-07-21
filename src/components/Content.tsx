@@ -28,9 +28,9 @@ const Details = ({
   return (
     <details className={styles.container} open={open}>
       <summary onClick={handleOpen}>
-        <section>
+        <div>
           <Markdown>{summary}</Markdown>
-        </section>
+        </div>
 
         {!open && (
           <div>
@@ -39,11 +39,11 @@ const Details = ({
         )}
       </summary>
 
-      <section className={styles['details-content']} onClick={handleClose}>
+      <div className={styles['details-content']} onClick={handleClose}>
         {content.map((item, i) => (
           <Markdown key={i}>{item}</Markdown>
         ))}
-      </section>
+      </div>
     </details>
   );
 };
@@ -59,9 +59,9 @@ const Content = ({ body, target }: { body?: string; target?: string }) => {
     <Details summary={summary} content={content} />
   ) : (
     <div className={styles.container}>
-      <section>
+      <div>
         <Markdown>{summary}</Markdown>
-      </section>
+      </div>
 
       {target ? (
         <div>

@@ -1,0 +1,64 @@
+@use '../vars';
+
+.card {
+  max-height: 80vh;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+
+  border: 2px solid black;
+  position: relative;
+  padding: 1em;
+  margin: 2em;
+
+  article {
+    flex-shrink: 4;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+// CSS trickery using opacity of pseudoelement to transition a background gradient
+// <https://keithjgrant.com/posts/2017/07/transitioning-gradients/>
+.card::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: vars.$card-bg-color;
+  z-index: -1;
+  opacity: 0;
+}
+
+.card:hover {
+  &::before {
+    transition: opacity 0.5s linear;
+    opacity: 1;
+  }
+
+  header {
+    font-weight: bold;
+  }
+
+  a,
+  button {
+    font-weight: bold;
+    color: vars.$tailwind-blue-700;
+  }
+
+  strong > em,
+  em > strong {
+    color: vars.$tailwind-blue-950;
+  }
+
+  a,
+  button,
+  strong > em,
+  em > strong {
+    transition: color 0.25s;
+    transition-delay: 0.75s;
+  }
+}

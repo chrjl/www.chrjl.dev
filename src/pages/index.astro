@@ -4,32 +4,46 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header';
 import Card from '../components/Card';
+
+import '../styles/main.scss';
+
 import metadata from '../data/_metadata.json';
 
 const collection = await getCollection('content');
 ---
 
 <BaseLayout siteTitle={metadata.siteTitle}>
-  <Header
-    title={metadata.pageTitle}
-    subtitle={metadata.subtitle}
-    subsubtitle={metadata.subsubtitle}
-    description={metadata.description}
-    links={metadata.links}
-  />
+  <header class="header">
+    <Header
+      title={metadata.pageTitle}
+      subtitle={metadata.subtitle}
+      subsubtitle={metadata.subsubtitle}
+      description={metadata.description}
+      links={metadata.links}
+    />
+  </header>
 
   <main>
     {
       collection.map(({ data, body }) => (
-        <Card
-          client:load
-          title={data.title}
-          keywords={data.keywords}
-          links={data.references?.map((ref) => ref.URL!)}
-          target={data.target}
-          order={Number.isInteger(data.order) ? data.order : collection.length}
-          body={body}
-        />
+        <section
+          style={{
+            order: Number.isInteger(data.order)
+              ? data.order
+              : collection.length,
+          }}
+        >
+          <div class="card">
+            <Card
+              client:load
+              title={data.title}
+              keywords={data.keywords}
+              links={data.references?.map((ref) => ref.URL!)}
+              target={data.target}
+              body={body}
+            />
+          </div>
+        </section>
       ))
     }
   </main>

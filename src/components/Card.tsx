@@ -25,14 +25,13 @@ interface Props {
   keywords?: string[];
   links?: string[];
   target?: string;
-  order?: number;
   body?: string;
 }
 
-const Card = ({ title, keywords, links, target, order = 0, body }: Props) => {
+const Card = ({ title, keywords, links, target, body }: Props) => {
   return (
-    <div className={styles.container} style={{ order }}>
-      <header>
+    <>
+      <header className={styles.header}>
         <h1 className={styles.title}>{title}</h1>
         {keywords ? <Keywords keywords={keywords} /> : null}
       </header>
@@ -42,11 +41,11 @@ const Card = ({ title, keywords, links, target, order = 0, body }: Props) => {
       </article>
 
       {links ? (
-        <footer>
+        <footer className={styles.footer}>
           <Links links={links} />
         </footer>
       ) : null}
-    </div>
+    </>
   );
 };
 

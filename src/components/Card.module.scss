@@ -1,76 +1,22 @@
 @use '../styles/vars';
 
-.container {
-  border: 2px solid black;
-  position: relative;
-  padding: 1em;
-  margin: 2em;
+.header {
+  text-align: center;
+  font-weight: 600;
+  transition: font-weight 1s;
+  margin-bottom: 2rem;
+}
 
-  header {
-    text-align: center;
-    font-weight: 600;
-    transition: font-weight 1s;
-    margin-bottom: 2rem;
-  }
+.footer {
+  margin-top: 3rem;
+  overflow: hidden;
+}
 
-  footer {
-    margin-top: 3rem;
-  }
-
-  .article {
-    strong > em,
-    em > strong {
-      font-style: normal;
-      color: vars.$tailwind-zinc-600;
-    }
-  }
-
-  &:hover {
-    header {
-      font-weight: bold;
-    }
-
-    a,
-    button {
-      font-weight: bold;
-      color: vars.$tailwind-blue-700;
-    }
-
-    strong > em,
-    em > strong {
-      color: vars.$tailwind-blue-950;
-    }
-
-    a,
-    button,
-    strong > em,
-    em > strong {
-      transition: color 0.5s;
-      transition-delay: 0.5s;
-    }
-  }
-
-  // CSS trickery using opacity of pseudoelement to transition a background gradient
-  // <https://keithjgrant.com/posts/2017/07/transitioning-gradients/>
-  &::before {
-    position: absolute;
-    content: '';
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(
-      vars.$tailwind-zinc-200,
-      75%,
-      vars.$tailwind-sky-100
-    );
-    z-index: -1;
-    transition: opacity 0.5s linear;
-    opacity: 0;
-  }
-
-  &:hover::before {
-    opacity: 1;
+.article {
+  strong > em,
+  em > strong {
+    font-style: normal;
+    color: vars.$tailwind-zinc-600;
   }
 }
 

@@ -20,7 +20,7 @@ export default function Header({
   links,
 }: Props) {
   return (
-    <header className={styles.header}>
+    <>
       <h1 className={styles.title}>{title}</h1>
 
       {subtitle ? <h2 className={styles.subtitle}>{subtitle}</h2> : null}
@@ -44,6 +44,6 @@ export default function Header({
             : null}
         </ul>
       </h4>
-    </header>
+    </>
   );
 }
