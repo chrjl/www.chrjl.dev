@@ -14,7 +14,7 @@ const collection = await getCollection('content');
 ---
 
 <BaseLayout siteTitle={metadata.siteTitle}>
-  <ScrollSnapContainer>
+  <ScrollSnapContainer client:load>
     <header class="header">
       <Header
         title={metadata.pageTitle}
