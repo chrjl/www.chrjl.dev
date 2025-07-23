@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ScrollSnapContainer from '../layouts/ScrollSnapContainer';
 import Header from '../components/Header';
 import Card from '../components/Card';
 
@@ -13,38 +14,40 @@ const collection = await getCollection('content');
 ---
 
 <BaseLayout siteTitle={metadata.siteTitle}>
-  <header class="header">
-    <Header
-      title={metadata.pageTitle}
-      subtitle={metadata.subtitle}
-      subsubtitle={metadata.subsubtitle}
-      description={metadata.description}
-      links={metadata.links}
-    />
-  </header>
+  <ScrollSnapContainer>
+    <header class="header">
+      <Header
+        title={metadata.pageTitle}
+        subtitle={metadata.subtitle}
+        subsubtitle={metadata.subsubtitle}
+        description={metadata.description}
+        links={metadata.links}
+      />
+    </header>
 
-  <main>
-    {
-      collection.map(({ data, body }) => (
-        <section
-          style={{
-            order: Number.isInteger(data.order)
-              ? data.order
-              : collection.length,
-          }}
-        >
-          <div class="card">
-            <Card
-              client:load
-              title={data.title}
-              keywords={data.keywords}
-              links={data.references?.map((ref) => ref.URL!)}
-              target={data.target}
-              body={body}
-            />
-          </div>
-        </section>
-      ))
-    }
-  </main>
+    <main>
+      {
+        collection.map(({ data, body }) => (
+          <section
+            style={{
+              order: Number.isInteger(data.order)
+                ? data.order
+                : collection.length,
+            }}
+          >
+            <div class="card">
+              <Card
+                client:load
+                title={data.title}
+                keywords={data.keywords}
+                links={data.references?.map((ref) => ref.URL!)}
+                target={data.target}
+                body={body}
+              />
+            </div>
+          </section>
+        ))
+      }
+    </main>
+  </ScrollSnapContainer>
 </BaseLayout>

@@ -32,32 +32,34 @@
   opacity: 0;
 }
 
-.card:hover {
-  &::before {
-    transition: opacity 0.5s linear;
-    opacity: 1;
-  }
+@container scroll-state(snapped: y) {
+  .card {
+    &::before {
+      transition: opacity 0.5s linear;
+      opacity: 1;
+    }
 
-  header {
-    font-weight: bold;
-  }
+    header {
+      font-weight: bold;
+    }
 
-  a,
-  button {
-    font-weight: bold;
-    color: vars.$tailwind-blue-700;
-  }
+    a,
+    button {
+      font-weight: bold;
+      color: vars.$tailwind-blue-700;
+    }
 
-  strong > em,
-  em > strong {
-    color: vars.$tailwind-blue-950;
-  }
+    strong > em,
+    em > strong {
+      color: vars.$tailwind-blue-950;
+    }
 
-  a,
-  button,
-  strong > em,
-  em > strong {
-    transition: color 0.25s;
-    transition-delay: 0.75s;
+    a,
+    button,
+    strong > em,
+    em > strong {
+      transition: color 0.25s;
+      transition-delay: 0.75s;
+    }
   }
 }

@@ -1,0 +1,17 @@
+html {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+header {
+  scroll-snap-align: start;
+}
+
+section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  container-type: scroll-state;
+  position: relative;
+}
