@@ -16,6 +16,9 @@
     overflow-x: hidden;
     overflow-y: auto;
   }
+
+  filter: blur(1px);
+  transition: filter 0.25s ease-in;
 }
 
 // CSS trickery using opacity of pseudoelement to transition a background gradient
@@ -30,36 +33,46 @@
   background: vars.$card-bg-color;
   z-index: -1;
   opacity: 0;
+  transition: opacity 0.25s linear;
+}
+
+@mixin card-snapped {
+  filter: blur(0);
+
+  &::before {
+    opacity: 1;
+  }
+
+  header {
+    font-weight: bold;
+  }
+
+  a,
+  button {
+    font-weight: bold;
+    color: vars.$tailwind-blue-700;
+  }
+
+  strong > em,
+  em > strong {
+    color: vars.$tailwind-blue-950;
+  }
+
+  a,
+  button,
+  strong > em,
+  em > strong {
+    transition: color 0.25s;
+    transition-delay: 0.25s;
+  }
 }
 
 @container scroll-state(snapped: y) {
   .card {
-    &::before {
-      transition: opacity 0.5s linear;
-      opacity: 1;
-    }
-
-    header {
-      font-weight: bold;
-    }
-
-    a,
-    button {
-      font-weight: bold;
-      color: vars.$tailwind-blue-700;
-    }
-
-    strong > em,
-    em > strong {
-      color: vars.$tailwind-blue-950;
-    }
-
-    a,
-    button,
-    strong > em,
-    em > strong {
-      transition: color 0.25s;
-      transition-delay: 0.75s;
-    }
+    @include card-snapped;
   }
+}
+
+.card-snapped-fallback {
+  @include card-snapped;
 }
