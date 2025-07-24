@@ -7,9 +7,11 @@ $tailwind-blue-700: oklch(48.8% 0.243 264.376);
 $tailwind-blue-950: oklch(28.2% 0.091 267.935);
 $tailwind-zinc-200: oklch(92% 0.004 286.32);
 $tailwind-zinc-600: oklch(44.2% 0.017 285.786);
+$tailwind-zinc-700: oklch(37.3% 0.034 259.733);
+$tailwind-zinc-800: oklch(27.4% 0.006 286.033);
 $tailwind-sky-100: oklch(95.1% 0.026 236.824);
 
-$card-bg-color: linear-gradient($tailwind-zinc-200, 75%, $tailwind-sky-100);
+$card-bg-color: linear-gradient($tailwind-zinc-200, 85%, $tailwind-sky-100);
 
 @mixin sans {
   font-family: $font-sans;

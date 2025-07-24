@@ -1,10 +1,12 @@
+@use '../styles/vars';
+
 .title {
   font-size: 2.25rem;
   font-weight: 900;
 }
 
 .subtitle {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   font-size: 1.25rem;
   font-weight: 800;
 }
@@ -12,14 +14,15 @@
 .subsubtitle {
   margin-top: 0.75rem;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
+  color: vars.$tailwind-zinc-600
 }
 
 %abstract {
   display: block;
 
-  margin-top: 3rem;
-  font-size: 0.875rem;
+  margin-top: 4rem;
+  font-size: 0.8rem;
   text-align: center;
 
   ul {
@@ -45,6 +48,8 @@
 }
 
 @mixin col-display {
+  margin-top: 4rem;
+
   ul {
     flex-direction: column;
     gap: 0.5em;
@@ -61,6 +66,8 @@
 }
 
 @mixin row-display {
+  margin-top: 6rem;
+
   ul {
     flex-direction: row;
     gap: 0;
