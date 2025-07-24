@@ -5,6 +5,17 @@
   flex-direction: column;
   gap: 2em;
 
+  a,
+  strong {
+    font-family: vars.$font-sans;
+  }
+
+  strong > em,
+  em > strong {
+    font-style: normal;
+    color: vars.$tailwind-zinc-600;
+  }
+
   p:first-child {
     margin-top: 0;
   }
@@ -23,6 +34,12 @@
   dd {
     font-size: 0.95em;
 
+    a {
+      font-weight: 700;
+      font-size: 95%;
+      white-space: pre-line;
+    }
+
     i {
       box-sizing: border-box;
       width: 2.1em;
@@ -32,9 +49,14 @@
     }
   }
 
+  dd + dd {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   dt + dd,
   dt + dt {
-    margin-top: 0.5em;
+    margin-top: 1em;
   }
 
   dl:not(:first-child),
@@ -48,7 +70,7 @@
   }
 
   .details-content {
-    margin-top: 3em;
+    margin-top: 2em;
   }
 }
 
