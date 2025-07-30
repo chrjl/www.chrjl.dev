@@ -1,4 +1,8 @@
 @use '../vars';
+@use 'sass:math';
+
+$pop-width: 1.25em;
+$header-shadow: math.div(1em, 24);
 
 .card {
   max-height: 70vh;
@@ -22,7 +26,10 @@
   }
 
   filter: blur(1px);
-  transition: filter 0.25s ease-in;
+
+  transition-property: transform, filter;
+  transition-duration: 0.25s;
+  transition-delay: 0.25s;
 }
 
 // CSS trickery using opacity of pseudoelement to transition a background gradient
@@ -34,21 +41,57 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: vars.$card-bg-color;
+  background: vars.$card-bg;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.25s linear;
+}
+
+// Create a shadow effect using background div
+// Avoid stacking context flashing on transition by using an animation
+.card::after {
+  position: absolute;
+  content: '';
+  top: $pop-width;
+  right: $pop-width;
+  bottom: -$pop-width;
+  left: -$pop-width;
+  background: vars.$card-shadow;
+  opacity: 0;
 }
 
 @mixin card-snapped {
+  overflow: visible;
   filter: blur(0);
+  transform: translate(0.5 * $pop-width, -0.5 * $pop-width);
 
   &::before {
     opacity: 1;
+    transition: opacity 0.5s linear;
+    transition-delay: 0.25s;
+  }
+
+  &::after {
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        z-index: -2;
+      }
+      60% {
+        opacity: 0;
+        z-index: -2;
+      }
+      to {
+        opacity: 1;
+        z-index: -2;
+      }
+    }
+
+    animation: fadeIn 1.25s forwards;
   }
 
   header {
     font-weight: bold;
+    text-shadow: -$header-shadow $header-shadow vars.$tailwind-zinc-400;
   }
 
   a,
@@ -68,7 +111,7 @@
   strong > em,
   em > strong {
     transition: color 0.25s;
-    transition-delay: 0.25s;
+    transition-delay: 0.75s;
   }
 }
 

@@ -5,12 +5,13 @@ html {
   scroll-snap-type: y mandatory;
 }
 
-header {
+header:not(section header) {
   scroll-snap-align: start;
 }
 
 section {
   scroll-snap-align: center;
+  scroll-margin-bottom: 10vh;
   scroll-snap-stop: always;
   container-type: scroll-state;
   position: relative;
