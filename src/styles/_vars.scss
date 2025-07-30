@@ -5,13 +5,17 @@ $font-mono: 'Cousine', monospace;
 $tailwind-blue-600: oklch(54.6% 0.245 262.881);
 $tailwind-blue-700: oklch(48.8% 0.243 264.376);
 $tailwind-blue-950: oklch(28.2% 0.091 267.935);
+
+$tailwind-zinc-50: oklch(98.5% 0 0);
+$tailwind-zinc-100: oklch(96.7% 0.001 286.375);
 $tailwind-zinc-200: oklch(92% 0.004 286.32);
+$tailwind-zinc-300: oklch(87.1% 0.006 286.286);
+$tailwind-zinc-400: oklch(70.5% 0.015 286.067);
 $tailwind-zinc-600: oklch(44.2% 0.017 285.786);
 $tailwind-zinc-700: oklch(37.3% 0.034 259.733);
 $tailwind-zinc-800: oklch(27.4% 0.006 286.033);
-$tailwind-sky-100: oklch(95.1% 0.026 236.824);
 
-$card-bg-color: linear-gradient($tailwind-zinc-200, 85%, $tailwind-sky-100);
+$card-bg-color: linear-gradient($tailwind-zinc-200, $tailwind-zinc-50);
 
 @mixin sans {
   font-family: $font-sans;

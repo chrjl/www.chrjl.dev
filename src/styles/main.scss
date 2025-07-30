@@ -3,13 +3,14 @@
 main {
   display: flex;
   flex-direction: column;
-  row-gap: 4rem;
+  row-gap: min(10vh, 6rem);
   padding: 0 3rem;
   padding-bottom: 50vh;
 }
 
 .header {
-  min-height: 60vh;
+  height: 80vh;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;

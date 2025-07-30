@@ -15,7 +15,7 @@
   margin-top: 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: vars.$tailwind-zinc-600
+  color: vars.$tailwind-zinc-600;
 }
 
 %abstract {
@@ -48,7 +48,7 @@
 }
 
 @mixin col-display {
-  margin-top: 4rem;
+  margin-top: 6rem;
 
   ul {
     flex-direction: column;
@@ -66,7 +66,7 @@
 }
 
 @mixin row-display {
-  margin-top: 6rem;
+  margin-top: 8rem;
 
   ul {
     flex-direction: row;

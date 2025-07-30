@@ -1,15 +1,19 @@
 @use '../vars';
 
 .card {
-  max-height: 80vh;
-  overflow-y: hidden;
+  max-height: 70vh;
   display: flex;
   flex-direction: column;
   row-gap: 3rem;
 
   border: 2px solid black;
   position: relative;
-  padding: 1em;
+  padding: 1em 1.75em;
+
+  header,
+  footer {
+    flex-shrink: 0;
+  }
 
   article {
     flex-shrink: 4;
